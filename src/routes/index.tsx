@@ -20,7 +20,7 @@ export const Route = createFileRoute("/")({
         content:
           "Rok Online builds high-performing websites and runs SEO, Google Ads and Meta Ads campaigns that turn clicks into loyal customers. 150+ projects delivered.",
       },
-      { property: "og:title", content: "Rok Online | Digital Growth Agency in Charlotte, NC" },
+      { property: "og:title", content: "Rok Online | Digital Growth Agency Rangpur, Bangladesh" },
       {
         property: "og:description",
         content:
@@ -40,14 +40,14 @@ export const Route = createFileRoute("/")({
           name: "Rok Online Inc.",
           description:
             "Digital marketing agency and web development company helping businesses grow online.",
-          telephone: "+1-704-412-6928",
+          telephone: "+8801326131609",
           email: "email@rokonline.com",
           address: {
             "@type": "PostalAddress",
-            streetAddress: "2717 Sardis Rd",
-            addressLocality: "Charlotte",
-            addressRegion: "NC",
-            postalCode: "28270",
+            streetAddress: "Maddho Pirzabad",
+            addressLocality: "Rangpur",
+            addressRegion: "Bangladesh",
+            postalCode: "5400",
             addressCountry: "US",
           },
           founder: { "@type": "Person", name: "Rokon Uz Zaman" },

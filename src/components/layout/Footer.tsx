@@ -152,7 +152,7 @@ export function Footer() {
 
         <div className="mt-14 flex flex-col items-center justify-between gap-3 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row">
           <p>© {new Date().getFullYear()} Rok Online Inc. All rights reserved.</p>
-          <p>Charlotte, North Carolina · Serving clients worldwide</p>
+          <p>Rangpur, Bangladesh · Serving clients worldwide</p>
         </div>
       </div>
     </footer>

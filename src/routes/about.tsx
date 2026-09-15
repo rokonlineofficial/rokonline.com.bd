@@ -21,7 +21,7 @@ export const Route = createFileRoute("/about")({
   ),
   head: () => ({
     meta: [
-      { title: "About Rok Online | Digital Growth Agency in Charlotte" },
+      { title: "About Rok Online | Digital Growth Agency in Rangpur-BD" },
       {
         name: "description",
         content:
