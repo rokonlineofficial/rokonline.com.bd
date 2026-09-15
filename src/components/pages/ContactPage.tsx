@@ -140,7 +140,7 @@ export function ContactPage() {
                   </a>
                 </li>
                 <li className="flex gap-3">
-                  <Clock className="size-4 shrink-0 text-accent" /> Mon–Fri, 9am–6pm EST
+                  <Clock className="size-4 shrink-0 text-accent" /> 24 Hours Open
                 </li>
               </ul>
             </div>
@@ -148,7 +148,7 @@ export function ContactPage() {
             <div className="glass overflow-hidden rounded-3xl">
               <iframe
                 title="Rok Online office location map"
-                src="https://www.google.com/maps?q=2717%20Sardis%20Rd%2C%20Charlotte%2C%20NC%2028270&output=embed"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3593.703409639301!2d89.20522717446146!3d25.747320009201005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e3338f7c8ddfb9%3A0xe62a8e84a913c5db!2sRok%20Online!5e0!3m2!1sen!2sbd!4v1789432895800!5m2!1sen!2sbd"
                 loading="lazy"
                 className="h-72 w-full border-0 grayscale-[35%]"
                 referrerPolicy="no-referrer-when-downgrade"
@@ -157,14 +157,51 @@ export function ContactPage() {
 
             <div className="glass rounded-3xl p-7">
               <h3 className="font-display text-lg font-bold">Follow us</h3>
+
               <div className="mt-4 flex flex-wrap gap-2">
-                {["LinkedIn", "Facebook", "Instagram", "YouTube", "Upwork"].map((s) => (
+                {[
+                  {
+                    name: "LinkedIn",
+                    url: "https://www.linkedin.com/company/rokonline"
+                  },
+                  {
+                    name: "Facebook",
+                    url: "https://www.facebook.com/rokonlineinc"
+                  },
+                  {
+                    name: "Instagram",
+                    url: "https://www.instagram.com/rokonlineinc"
+                  },
+                  {
+                    name: "YouTube",
+                    url: "https://www.youtube.com/@rokonline"
+                  },
+                  {
+                    name: "Upwork",
+                    url: "/#"
+                  }
+                ].map((s) => (
                   <a
-                    key={s}
-                    href="#"
-                    className="rounded-full border border-border px-4 py-2 text-xs font-semibold text-muted-foreground transition-all hover:-translate-y-0.5 hover:border-accent hover:text-accent"
+                    key={s.name}
+                    href={s.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="
+                      rounded-full
+                      border
+                      border-border
+                      px-4
+                      py-2
+                      text-xs
+                      font-semibold
+                      text-muted-foreground
+                      transition-all
+                      hover:-translate-y-0.5
+                      hover:border-accent
+                      hover:text-accent
+                    "
                   >
-                    {s}
+                    {s.name}
                   </a>
                 ))}
               </div>

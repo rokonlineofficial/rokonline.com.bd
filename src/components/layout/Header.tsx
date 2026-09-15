@@ -7,58 +7,80 @@ import { Magnetic } from "@/components/anim/Magnetic";
 import { gsap } from "@/lib/gsap";
 import logoAsset from "@/assets/Rok-Online-Logo.png";
 
+
 const nav = [
   { label: "About", to: "/about" },
+  { label: "Services", to: "/services" },
   { label: "Team", to: "/team" },
-  { label: "Portfolio", to: "/portfolio" },
   { label: "Process", to: "/process" },
+  { label: "Portfolio", to: "/portfolio" },
   { label: "Testimonials", to: "/testimonials" },
   { label: "Contact", to: "/contact" },
 ];
 
+
 export function Header() {
+
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
+
   useEffect(() => {
+
     const onScroll = () => {
       setScrolled(window.scrollY > 24);
     };
 
     onScroll();
 
-    window.addEventListener("scroll", onScroll, {
-      passive: true,
-    });
+    window.addEventListener(
+      "scroll",
+      onScroll,
+      {
+        passive:true
+      }
+    );
+
 
     return () => {
-      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener(
+        "scroll",
+        onScroll
+      );
     };
+
+
   }, []);
 
 
-  // Only mobile menu animation
+
   useEffect(() => {
-    if (!open) return;
+
+    if(!open) return;
+
 
     gsap.fromTo(
       ".mobile-nav-item",
       {
-        x: 20,
-        opacity: 0,
+        x:20,
+        opacity:0
       },
       {
-        x: 0,
-        opacity: 1,
-        duration: 0.4,
-        stagger: 0.05,
-        ease: "power3.out",
+        x:0,
+        opacity:1,
+        duration:0.4,
+        stagger:0.05,
+        ease:"power3.out"
       }
     );
-  }, [open]);
+
+
+  },[open]);
+
 
 
   return (
+
     <header
       className={`
         fixed
@@ -71,11 +93,12 @@ export function Header() {
 
         ${
           scrolled
-            ? "glass backdrop-blur-2xl"
-            : "bg-transparent"
+          ? "glass backdrop-blur-2xl"
+          : "bg-transparent"
         }
       `}
     >
+
 
       <div
         className="
@@ -90,7 +113,9 @@ export function Header() {
         "
       >
 
+
         {/* Logo */}
+
         <Link
           to="/"
           className="
@@ -100,6 +125,7 @@ export function Header() {
             shrink-0
           "
         >
+
           <img
             src={logoAsset}
             alt="Rok Online"
@@ -109,11 +135,15 @@ export function Header() {
               object-contain
             "
           />
+
         </Link>
 
 
 
-        {/* Desktop Navigation */}
+
+
+        {/* Desktop Menu */}
+
         <nav
           className="
             hidden
@@ -123,133 +153,165 @@ export function Header() {
           "
         >
 
-          {/* Services Dropdown */}
-          <div className="group relative">
 
-            <Link
-              to="/services"
-              className="
-                flex
-                items-center
-                gap-1
-                rounded-full
-                px-4
-                py-2
-                text-sm
-                font-medium
-                text-white
-                transition-colors
-                hover:text-white
-              "
-            >
-              Services
-
-              <ChevronDown
-                className="
-                  size-3.5
-                  transition-transform
-                  group-hover:rotate-180
-                "
-              />
-
-            </Link>
+          {
+            nav.map((n)=>(
 
 
-            <div
-              className="
-                pointer-events-none
-                absolute
-                left-1/2
-                top-full
-                w-[560px]
-                -translate-x-1/2
-                pt-3
-                opacity-0
-                transition-all
-                duration-300
+              n.label === "Services" ? (
 
-                group-hover:pointer-events-auto
-                group-hover:opacity-100
-              "
-            >
+                <div
+                  key={n.to}
+                  className="group relative"
+                >
 
-              <div
-                className="
-                  glass
-                  grid
-                  grid-cols-2
-                  gap-1
-                  rounded-2xl
-                  p-3
-                "
-              >
 
-                {services.map((s)=>(
                   <Link
-                    key={s.slug}
-                    to="/services/$slug"
-                    params={{
-                      slug:s.slug
-                    }}
+                    to="/services"
                     className="
-                      rounded-xl
-                      px-3
-                      py-2.5
-                      hover:bg-white/10
+                      flex
+                      items-center
+                      gap-1
+                      rounded-full
+                      px-4
+                      py-2
+                      text-sm
+                      font-medium
+                      text-white
                     "
                   >
 
-                    <span
-                      className="
-                        block
-                        text-sm
-                        font-semibold
-                        text-white
-                      "
-                    >
-                      {s.title}
-                    </span>
+                    Services
 
 
-                    <span
+                    <ChevronDown
                       className="
-                        block
-                        text-xs
-                        text-white/60
+                        size-3.5
+                        transition-transform
+                        group-hover:rotate-180
                       "
-                    >
-                      {s.short}
-                    </span>
+                    />
 
                   </Link>
-                ))}
-
-              </div>
-
-            </div>
-
-          </div>
 
 
 
-          {nav.map((n)=>(
-            <Link
-              key={n.to}
-              to={n.to}
-              className="
-                rounded-full
-                px-4
-                py-2
-                text-sm
-                font-medium
-                text-white
-                transition-colors
-                hover:text-white
-              "
-            >
-              {n.label}
-            </Link>
-          ))}
+
+                  {/* Services Dropdown */}
+
+
+                  <div
+                    className="
+                      pointer-events-none
+                      absolute
+                      left-1/2
+                      top-full
+                      w-[560px]
+                      -translate-x-1/2
+                      pt-3
+                      opacity-0
+                      transition-all
+                      duration-300
+                      group-hover:pointer-events-auto
+                      group-hover:opacity-100
+                    "
+                  >
+
+
+                    <div
+                      className="
+                        glass
+                        grid
+                        grid-cols-2
+                        gap-1
+                        rounded-2xl
+                        p-3
+                      "
+                    >
+
+
+                      {
+                        services.map((s)=>(
+
+                          <Link
+                            key={s.slug}
+                            to="/services/$slug"
+                            params={{
+                              slug:s.slug
+                            }}
+                            className="
+                              rounded-xl
+                              px-3
+                              py-2.5
+                              hover:bg-white/10
+                            "
+                          >
+
+                            <span
+                              className="
+                                block
+                                text-sm
+                                font-semibold
+                                text-white
+                              "
+                            >
+                              {s.title}
+                            </span>
+
+
+                            <span
+                              className="
+                                block
+                                text-xs
+                                text-white/60
+                              "
+                            >
+                              {s.short}
+                            </span>
+
+
+                          </Link>
+
+                        ))
+                      }
+
+
+                    </div>
+
+
+                  </div>
+
+
+                </div>
+
+
+              ) : (
+
+
+                <Link
+                  key={n.to}
+                  to={n.to}
+                  className="
+                    rounded-full
+                    px-4
+                    py-2
+                    text-sm
+                    font-medium
+                    text-white
+                  "
+                >
+
+                  {n.label}
+
+                </Link>
+
+
+              )
+
+
+            ))
+          }
+
 
 
         </nav>
@@ -257,7 +319,10 @@ export function Header() {
 
 
 
+
         {/* Right Side */}
+
+
         <div
           className="
             flex
@@ -266,6 +331,7 @@ export function Header() {
             shrink-0
           "
         >
+
 
           <a
             href={company.phoneHref}
@@ -285,6 +351,7 @@ export function Header() {
             {company.phone}
 
           </a>
+
 
 
 
@@ -311,11 +378,15 @@ export function Header() {
                 text-white
               "
             >
+
               Free Consultation
+
             </Link>
 
 
           </Magnetic>
+
+
 
 
 
@@ -345,7 +416,9 @@ export function Header() {
           </button>
 
 
+
         </div>
+
 
 
       </div>
@@ -353,7 +426,11 @@ export function Header() {
 
 
 
+
+
       {/* Mobile Menu */}
+
+
       {
         open && (
 
@@ -370,15 +447,10 @@ export function Header() {
             "
           >
 
+
             {
-              [
-                {
-                  label:"Services",
-                  to:"/services"
-                },
-                ...nav
-              ]
-              .map((n)=>(
+              nav.map((n)=>(
+
 
                 <Link
                   key={n.to}
@@ -399,18 +471,25 @@ export function Header() {
 
                   {n.label}
 
+
                 </Link>
+
 
               ))
             }
 
 
+
           </div>
+
 
         )
       }
 
 
+
     </header>
+
   );
+
 }
